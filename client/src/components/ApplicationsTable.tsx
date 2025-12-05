@@ -66,13 +66,13 @@ export default function ApplicationsTable({
 
   const getStatusBadge = (status: string) => {
     const colors: Record<string, string> = {
-      Registered: "bg-muted text-muted-foreground",
-      Shortlisted: "bg-muted text-muted-foreground",
-      Interview: "bg-muted text-muted-foreground",
-      Selected: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300",
-      Rejected: "bg-red-50 text-red-600 dark:bg-red-950 dark:text-red-400",
+      Registered: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+      Shortlisted: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+      Interview: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+      Selected: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+      Rejected: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
     };
-    return <Badge className={`text-xs font-medium ${colors[status]}`}>{status}</Badge>;
+    return <Badge className={`text-xs ${colors[status]}`}>{status}</Badge>;
   };
 
   const getMatchScoreBadge = (score?: number) => {
