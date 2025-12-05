@@ -10,7 +10,31 @@ interface StatsCardProps {
     value: number;
     isPositive: boolean;
   };
+  variant?: "primary" | "secondary" | "accent" | "default";
 }
+
+const variantStyles = {
+  primary: {
+    card: "bg-gradient-to-br from-card to-primary/10 border-primary/15",
+    icon: "bg-gradient-to-br from-primary/25 to-primary/15",
+    iconColor: "text-primary",
+  },
+  secondary: {
+    card: "bg-gradient-to-br from-card to-secondary/40 border-secondary/20",
+    icon: "bg-gradient-to-br from-secondary to-secondary/60",
+    iconColor: "text-secondary-foreground",
+  },
+  accent: {
+    card: "bg-gradient-to-br from-card to-accent/40 border-accent/20",
+    icon: "bg-gradient-to-br from-accent to-accent/60",
+    iconColor: "text-accent-foreground",
+  },
+  default: {
+    card: "",
+    icon: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+};
 
 export default function StatsCard({
   title,
@@ -18,9 +42,12 @@ export default function StatsCard({
   subtitle,
   icon: Icon,
   trend,
+  variant = "default",
 }: StatsCardProps) {
+  const styles = variantStyles[variant];
+  
   return (
-    <Card className="p-6">
+    <Card className={`p-6 ${styles.card}`}>
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-1">
           <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
@@ -43,8 +70,8 @@ export default function StatsCard({
             </p>
           )}
         </div>
-        <div className="p-3 bg-primary/10 rounded-lg">
-          <Icon className="w-6 h-6 text-primary" />
+        <div className={`p-3 rounded-xl ${styles.icon}`}>
+          <Icon className={`w-6 h-6 ${styles.iconColor}`} />
         </div>
       </div>
     </Card>

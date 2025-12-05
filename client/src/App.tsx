@@ -150,7 +150,7 @@ function CoordinatorDashboard() {
   const placementRate = Math.round((placedStudents / totalStudents) * 100);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/10">
       <Header
         userName="Dr. Priya Sharma"
         userRole="coordinator"
@@ -179,10 +179,10 @@ function CoordinatorDashboard() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <StatsCard title="Active Drives" value={activeDrives} subtitle="Currently recruiting" icon={Building2} />
-              <StatsCard title="Students Placed" value={`${placedStudents}/${totalStudents}`} subtitle={`${placementRate}% placement rate`} icon={CheckCircle} trend={{ value: 12, isPositive: true }} />
-              <StatsCard title="Total Students" value={totalStudents} subtitle="Registered students" icon={Users} />
-              <StatsCard title="Avg Package" value="8.5 LPA" subtitle="This season" icon={TrendingUp} trend={{ value: 15, isPositive: true }} />
+              <StatsCard title="Active Drives" value={activeDrives} subtitle="Currently recruiting" icon={Building2} variant="primary" />
+              <StatsCard title="Students Placed" value={`${placedStudents}/${totalStudents}`} subtitle={`${placementRate}% placement rate`} icon={CheckCircle} trend={{ value: 12, isPositive: true }} variant="secondary" />
+              <StatsCard title="Total Students" value={totalStudents} subtitle="Registered students" icon={Users} variant="accent" />
+              <StatsCard title="Avg Package" value="8.5 LPA" subtitle="This season" icon={TrendingUp} trend={{ value: 15, isPositive: true }} variant="primary" />
             </div>
 
             <div className="flex items-center justify-between">
@@ -287,7 +287,7 @@ function StudentDashboard() {
   const registeredDriveIds = mockApplications.map((a) => a.driveId);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/10">
       <Header
         userName={currentStudent.name}
         userRole="student"
@@ -329,12 +329,14 @@ function StudentDashboard() {
                 value={eligibleDrives.length}
                 subtitle="Based on your profile"
                 icon={Target}
+                variant="primary"
               />
               <StatsCard
                 title="My Applications"
                 value={mockApplications.length}
                 subtitle="Active applications"
                 icon={Building2}
+                variant="secondary"
               />
               <StatsCard
                 title="Upcoming Deadlines"
@@ -347,6 +349,7 @@ function StudentDashboard() {
                 }).length}
                 subtitle="Within 7 days"
                 icon={Clock}
+                variant="accent"
               />
             </div>
 
@@ -519,11 +522,13 @@ function StudentDashboard() {
 
 function LandingPage({ onSelectRole }: { onSelectRole: (role: "coordinator" | "student" | "auth") => void }) {
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/20">
+      <header className="border-b border-border/50 backdrop-blur-sm bg-background/80">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <GraduationCap className="w-7 h-7 text-primary" />
+            <div className="p-2 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg">
+              <GraduationCap className="w-6 h-6 text-primary" />
+            </div>
             <span className="font-semibold text-lg tracking-tight">T&P Portal</span>
           </div>
           <Button onClick={() => onSelectRole("auth")} data-testid="button-login-header">
@@ -534,14 +539,18 @@ function LandingPage({ onSelectRole }: { onSelectRole: (role: "coordinator" | "s
 
       <main className="max-w-7xl mx-auto px-4 md:px-6 py-16">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            Empowering Campus Placements
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
             University Training & Placement Portal
           </h1>
           <p className="text-lg text-muted-foreground mb-8">
             Streamline campus placements with AI-powered resume analysis, eligibility matching, and comprehensive drive management.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" onClick={() => onSelectRole("auth")} data-testid="button-get-started">
+            <Button size="lg" className="shadow-lg shadow-primary/20" onClick={() => onSelectRole("auth")} data-testid="button-get-started">
               Get Started
             </Button>
             <Button size="lg" variant="outline" onClick={() => onSelectRole("coordinator")} data-testid="button-demo-coordinator">
@@ -553,9 +562,9 @@ function LandingPage({ onSelectRole }: { onSelectRole: (role: "coordinator" | "s
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <Card className="p-6">
-            <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <Card className="p-6 bg-gradient-to-br from-card to-primary/5 border-primary/10 hover-elevate transition-all">
+            <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl w-fit mb-4">
               <Building2 className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-semibold text-lg mb-2">Drive Management</h3>
@@ -563,18 +572,18 @@ function LandingPage({ onSelectRole }: { onSelectRole: (role: "coordinator" | "s
               Post and manage placement drives with detailed eligibility criteria. Track registrations and update student status in real-time.
             </p>
           </Card>
-          <Card className="p-6">
-            <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
-              <Target className="w-6 h-6 text-primary" />
+          <Card className="p-6 bg-gradient-to-br from-card to-secondary/30 border-secondary/20 hover-elevate transition-all">
+            <div className="p-3 bg-gradient-to-br from-secondary to-secondary/50 rounded-xl w-fit mb-4">
+              <Target className="w-6 h-6 text-secondary-foreground" />
             </div>
             <h3 className="font-semibold text-lg mb-2">Smart Matching</h3>
             <p className="text-sm text-muted-foreground">
               Students see only eligible drives based on CGPA, backlogs, and branch. No more confusion about eligibility.
             </p>
           </Card>
-          <Card className="p-6">
-            <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
-              <TrendingUp className="w-6 h-6 text-primary" />
+          <Card className="p-6 bg-gradient-to-br from-card to-accent/30 border-accent/20 hover-elevate transition-all">
+            <div className="p-3 bg-gradient-to-br from-accent to-accent/50 rounded-xl w-fit mb-4">
+              <TrendingUp className="w-6 h-6 text-accent-foreground" />
             </div>
             <h3 className="font-semibold text-lg mb-2">AI Resume Analysis</h3>
             <p className="text-sm text-muted-foreground">

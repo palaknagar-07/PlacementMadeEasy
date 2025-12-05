@@ -2,14 +2,35 @@
 
 ## Design Approach
 
-**Selected Approach**: Design System - Modern Productivity Hybrid
-Drawing inspiration from Linear's clean interface, Notion's information hierarchy, and Material Design's form patterns to create a professional, efficiency-focused application for educational management.
+**Selected Approach**: Modern Pastel Design System
+A fresh, inviting design with soft pastel colors that feels professional yet approachable. The color palette creates a warm, lively atmosphere while maintaining clarity and usability.
 
 **Key Design Principles**:
-1. **Clarity First**: Information density balanced with breathing room
-2. **Scannable Data**: Quick visual parsing of tables, statistics, and status indicators
-3. **Purposeful Hierarchy**: Guide users through complex workflows effortlessly
-4. **Professional Polish**: Clean, trustworthy interface appropriate for institutional use
+1. **Soft & Inviting**: Pastel colors create a welcoming, friendly atmosphere
+2. **Visual Harmony**: Gradient backgrounds and color-coordinated elements
+3. **Clarity First**: Information density balanced with breathing room
+4. **Purposeful Hierarchy**: Guide users through complex workflows effortlessly
+
+---
+
+## Color Palette
+
+**Primary Colors (Light Mode)**:
+- **Primary**: Soft Lavender/Violet - `hsl(258 65% 65%)` - Main actions, links, focus states
+- **Secondary**: Mint/Teal - `hsl(180 35% 92%)` - Complementary highlights, secondary actions
+- **Accent**: Soft Pink - `hsl(330 50% 94%)` - Warm accents, notifications
+- **Background**: Warm Off-White - `hsl(30 50% 99%)` - Page backgrounds with subtle gradients
+- **Card**: Warm White - `hsl(30 40% 98%)` - Card and panel backgrounds
+
+**Dark Mode**:
+- Deep violet-tinted backgrounds with matching pastel highlights
+- Muted foregrounds for comfortable reading
+- Preserved color harmony across themes
+
+**Gradient Usage**:
+- Page backgrounds: `bg-gradient-to-br from-background via-background to-[color]/10`
+- Cards: `bg-gradient-to-br from-card to-[color]/10`
+- Icon containers: `bg-gradient-to-br from-[color]/25 to-[color]/15`
 
 ---
 
