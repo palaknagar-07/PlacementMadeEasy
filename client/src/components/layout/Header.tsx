@@ -47,16 +47,14 @@ export default function Header({
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/40">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between gap-4 h-16">
+        <div className="flex items-center justify-between gap-4 h-14">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg">
-                <GraduationCap className="w-5 h-5 text-primary" />
-              </div>
-              <span className="font-semibold text-lg tracking-tight hidden sm:block">
-                T&P Portal
+              <GraduationCap className="w-6 h-6 text-foreground" />
+              <span className="font-semibold text-base hidden sm:block">
+                UniPlacement
               </span>
             </div>
           </div>

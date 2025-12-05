@@ -2,35 +2,32 @@
 
 ## Design Approach
 
-**Selected Approach**: Modern Pastel Design System
-A fresh, inviting design with soft pastel colors that feels professional yet approachable. The color palette creates a warm, lively atmosphere while maintaining clarity and usability.
+**Selected Approach**: Apple-inspired Minimalist Design
+Clean, premium aesthetic inspired by Apple's design philosophy. Focus on whitespace, typography hierarchy, and subtle interactions that feel smooth and refined.
 
 **Key Design Principles**:
-1. **Soft & Inviting**: Pastel colors create a welcoming, friendly atmosphere
-2. **Visual Harmony**: Gradient backgrounds and color-coordinated elements
-3. **Clarity First**: Information density balanced with breathing room
-4. **Purposeful Hierarchy**: Guide users through complex workflows effortlessly
+1. **Simplicity First**: Remove everything unnecessary, keep only what matters
+2. **Premium Feel**: Quality through restraint, not decoration
+3. **Clear Hierarchy**: Large bold headings, subtle supporting text
+4. **Smooth Interactions**: Subtle transitions, frosted glass effects
 
 ---
 
 ## Color Palette
 
-**Primary Colors (Light Mode)**:
-- **Primary**: Soft Lavender/Violet - `hsl(258 65% 65%)` - Main actions, links, focus states
-- **Secondary**: Mint/Teal - `hsl(180 35% 92%)` - Complementary highlights, secondary actions
-- **Accent**: Soft Pink - `hsl(330 50% 94%)` - Warm accents, notifications
-- **Background**: Warm Off-White - `hsl(30 50% 99%)` - Page backgrounds with subtle gradients
-- **Card**: Warm White - `hsl(30 40% 98%)` - Card and panel backgrounds
+**Light Mode**:
+- **Background**: Pure White - `hsl(0 0% 100%)` - Clean, spacious feel
+- **Foreground**: Near Black - `hsl(0 0% 11%)` - Strong, readable text
+- **Primary**: Apple Blue - `hsl(211 100% 50%)` - Actions, links, focus states
+- **Muted**: Light Gray - `hsl(0 0% 96%)` - Subtle backgrounds, cards
+- **Border**: Very Light - `hsl(0 0% 94%)` - Barely visible separation
 
 **Dark Mode**:
-- Deep violet-tinted backgrounds with matching pastel highlights
-- Muted foregrounds for comfortable reading
-- Preserved color harmony across themes
+- **Background**: True Black - `hsl(0 0% 0%)` - OLED-friendly, premium feel
+- **Card**: Dark Gray - `hsl(0 0% 7%)` - Subtle elevation
+- **Primary**: Brighter Blue - `hsl(211 100% 55%)` - Visible on dark
 
-**Gradient Usage**:
-- Page backgrounds: `bg-gradient-to-br from-background via-background to-[color]/10`
-- Cards: `bg-gradient-to-br from-card to-[color]/10`
-- Icon containers: `bg-gradient-to-br from-[color]/25 to-[color]/15`
+**No Gradients**: Clean flat colors, no busy patterns
 
 ---
 

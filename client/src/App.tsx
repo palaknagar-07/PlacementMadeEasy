@@ -150,7 +150,7 @@ function CoordinatorDashboard() {
   const placementRate = Math.round((placedStudents / totalStudents) * 100);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/10">
+    <div className="min-h-screen bg-background">
       <Header
         userName="Dr. Priya Sharma"
         userRole="coordinator"
@@ -287,7 +287,7 @@ function StudentDashboard() {
   const registeredDriveIds = mockApplications.map((a) => a.driveId);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/10">
+    <div className="min-h-screen bg-background">
       <Header
         userName={currentStudent.name}
         userRole="student"
@@ -522,79 +522,72 @@ function StudentDashboard() {
 
 function LandingPage({ onSelectRole }: { onSelectRole: (role: "coordinator" | "student" | "auth") => void }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/20">
-      <header className="border-b border-border/50 backdrop-blur-sm bg-background/80">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="p-2 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg">
-              <GraduationCap className="w-6 h-6 text-primary" />
-            </div>
-            <span className="font-semibold text-lg tracking-tight">T&P Portal</span>
+    <div className="min-h-screen bg-background">
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/40">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <GraduationCap className="w-7 h-7 text-foreground" />
+            <span className="font-semibold text-lg">UniPlacement</span>
           </div>
-          <Button onClick={() => onSelectRole("auth")} data-testid="button-login-header">
+          <Button variant="ghost" onClick={() => onSelectRole("auth")} data-testid="button-login-header">
             Sign In
           </Button>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 md:px-6 py-16">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Empowering Campus Placements
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
-            University Training & Placement Portal
+      <main className="max-w-6xl mx-auto px-6">
+        <div className="text-center py-24 md:py-32">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 leading-[1.1]">
+            Campus placements,
+            <br />
+            <span className="text-muted-foreground">simplified.</span>
           </h1>
-          <p className="text-lg text-muted-foreground mb-8">
-            Streamline campus placements with AI-powered resume analysis, eligibility matching, and comprehensive drive management.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+            The modern platform for university placement cells. AI-powered matching, seamless tracking, and beautiful insights.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="shadow-lg shadow-primary/20" onClick={() => onSelectRole("auth")} data-testid="button-get-started">
+            <Button size="lg" className="h-12 px-8 text-base" onClick={() => onSelectRole("auth")} data-testid="button-get-started">
               Get Started
             </Button>
-            <Button size="lg" variant="outline" onClick={() => onSelectRole("coordinator")} data-testid="button-demo-coordinator">
-              Demo: Coordinator
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => onSelectRole("student")} data-testid="button-demo-student">
-              Demo: Student
+            <Button size="lg" variant="outline" className="h-12 px-8 text-base" onClick={() => onSelectRole("student")} data-testid="button-demo-student">
+              Try Demo
             </Button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <Card className="p-6 bg-gradient-to-br from-card to-primary/5 border-primary/10 hover-elevate transition-all">
-            <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl w-fit mb-4">
-              <Building2 className="w-6 h-6 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-24">
+          <Card className="p-8 border-0 bg-muted/50 hover-elevate transition-all duration-300">
+            <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6">
+              <Building2 className="w-6 h-6 text-foreground" />
             </div>
-            <h3 className="font-semibold text-lg mb-2">Drive Management</h3>
-            <p className="text-sm text-muted-foreground">
-              Post and manage placement drives with detailed eligibility criteria. Track registrations and update student status in real-time.
+            <h3 className="font-semibold text-xl mb-3">Drive Management</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Post drives, set eligibility criteria, and track registrations in real-time with an intuitive dashboard.
             </p>
           </Card>
-          <Card className="p-6 bg-gradient-to-br from-card to-secondary/30 border-secondary/20 hover-elevate transition-all">
-            <div className="p-3 bg-gradient-to-br from-secondary to-secondary/50 rounded-xl w-fit mb-4">
-              <Target className="w-6 h-6 text-secondary-foreground" />
+          <Card className="p-8 border-0 bg-muted/50 hover-elevate transition-all duration-300">
+            <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6">
+              <Target className="w-6 h-6 text-foreground" />
             </div>
-            <h3 className="font-semibold text-lg mb-2">Smart Matching</h3>
-            <p className="text-sm text-muted-foreground">
-              Students see only eligible drives based on CGPA, backlogs, and branch. No more confusion about eligibility.
+            <h3 className="font-semibold text-xl mb-3">Smart Matching</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Students see only eligible opportunities. No confusion, no missed chances, just clarity.
             </p>
           </Card>
-          <Card className="p-6 bg-gradient-to-br from-card to-accent/30 border-accent/20 hover-elevate transition-all">
-            <div className="p-3 bg-gradient-to-br from-accent to-accent/50 rounded-xl w-fit mb-4">
-              <TrendingUp className="w-6 h-6 text-accent-foreground" />
+          <Card className="p-8 border-0 bg-muted/50 hover-elevate transition-all duration-300">
+            <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6">
+              <TrendingUp className="w-6 h-6 text-foreground" />
             </div>
-            <h3 className="font-semibold text-lg mb-2">AI Resume Analysis</h3>
-            <p className="text-sm text-muted-foreground">
-              Get AI-powered insights on how well your resume matches job requirements. Improve your chances with actionable suggestions.
+            <h3 className="font-semibold text-xl mb-3">AI Insights</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Get intelligent resume analysis and personalized suggestions to improve placement success.
             </p>
           </Card>
         </div>
 
-        <div className="text-center">
+        <div className="text-center pb-16">
           <p className="text-sm text-muted-foreground">
-            Built for universities to simplify and optimize their placement process
+            Trusted by universities worldwide
           </p>
         </div>
       </main>
