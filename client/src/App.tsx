@@ -18,6 +18,7 @@ import ResumeManager from "@/components/ResumeManager";
 import AIAnalysis from "@/components/AIAnalysis";
 import ApplicationsTable from "@/components/ApplicationsTable";
 import DriveManagement from "@/components/DriveManagement";
+import Community from "@/components/Community";
 import {
   Building2,
   Users,
@@ -110,6 +111,22 @@ const mockApplications = [
   { id: 1, driveId: 1, companyName: "Google", jobRole: "Software Engineer", appliedAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), status: "Shortlisted" as const, matchScore: 85, resumeName: "Default Resume" },
   { id: 2, driveId: 2, companyName: "Microsoft", jobRole: "SDE II", appliedAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), status: "Interview" as const, matchScore: 78, resumeName: "Tech Focused" },
   { id: 3, driveId: 3, companyName: "Amazon", jobRole: "SDE I", appliedAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), status: "Registered" as const, resumeName: "Default Resume" },
+];
+
+// todo: remove mock functionality
+const mockDiscussions = [
+  { id: 1, title: "Tips for Google Technical Interview", content: "I just cleared Google's technical round! Here are some tips that helped me - focus on problem-solving approach, communicate your thought process clearly, and practice medium-level DSA problems.", author: { name: "Priya Patel", branch: "IT" }, createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), repliesCount: 12, likesCount: 34, tags: ["Interview", "Google"] },
+  { id: 2, title: "Resume tips for freshers", content: "Should I include my internship project if it was only 2 months? Also, how many projects are ideal for a fresher resume?", author: { name: "Amit Kumar", branch: "ECE" }, createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), repliesCount: 8, likesCount: 15, tags: ["Resume"] },
+  { id: 3, title: "Microsoft vs Amazon - Which to choose?", content: "Got offers from both! Microsoft is offering slightly less but heard work-life balance is better. Any seniors who can share their experience?", author: { name: "Sneha Gupta", branch: "CSE" }, createdAt: new Date(Date.now() - 12 * 60 * 60 * 1000), repliesCount: 23, likesCount: 45, tags: ["Career"] },
+];
+
+// todo: remove mock functionality
+const mockStudentContacts = [
+  { id: 1, name: "Priya Patel", branch: "IT", graduationYear: 2025, placementStatus: "Not Placed", isOnline: true },
+  { id: 2, name: "Amit Kumar", branch: "ECE", graduationYear: 2025, placementStatus: "Not Placed", isOnline: false },
+  { id: 3, name: "Sneha Gupta", branch: "CSE", graduationYear: 2025, placementStatus: "Placed", placedCompany: "Microsoft", isOnline: true },
+  { id: 4, name: "Vikram Singh", branch: "Mechanical", graduationYear: 2025, placementStatus: "Opted Out", isOnline: false },
+  { id: 5, name: "Ananya Reddy", branch: "CSE", graduationYear: 2025, placementStatus: "Placed", placedCompany: "Google", isOnline: true },
 ];
 
 function CoordinatorDashboard() {
@@ -290,15 +307,6 @@ function StudentDashboard() {
                 <div className="flex items-center gap-2 mt-2">
                   <Badge variant="outline">{currentStudent.rollNumber}</Badge>
                   <Badge variant="outline">{currentStudent.branch}</Badge>
-                  <Badge
-                    className={
-                      currentStudent.placementStatus === "Placed"
-                        ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                        : "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
-                    }
-                  >
-                    {currentStudent.placementStatus}
-                  </Badge>
                 </div>
               </div>
               <Card className="p-4">
@@ -478,6 +486,29 @@ function StudentDashboard() {
                 });
               }}
               onView={(id) => console.log("View:", id)}
+            />
+          </div>
+        )}
+
+        {activeTab === "Community" && (
+          <div className="space-y-6">
+            <h1 className="text-3xl font-semibold tracking-tight">Community</h1>
+            <Community
+              discussions={mockDiscussions}
+              students={mockStudentContacts}
+              onCreateDiscussion={(title, content, tags) => {
+                console.log("Create discussion:", { title, content, tags });
+                toast({
+                  title: "Discussion Posted",
+                  description: "Your discussion has been shared with the community",
+                });
+              }}
+              onSendMessage={(studentId, message) => {
+                console.log("Send message:", { studentId, message });
+              }}
+              onLikeDiscussion={(discussionId) => {
+                console.log("Like discussion:", discussionId);
+              }}
             />
           </div>
         )}

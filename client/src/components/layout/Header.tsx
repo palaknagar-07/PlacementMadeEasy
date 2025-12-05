@@ -29,7 +29,7 @@ export default function Header({
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const coordinatorTabs = ["Dashboard", "Drives", "Students"];
-  const studentTabs = ["Dashboard", "Drives", "My Applications", "Resumes"];
+  const studentTabs = ["Dashboard", "Drives", "My Applications", "Resumes", "Community"];
   const tabs = userRole === "coordinator" ? coordinatorTabs : studentTabs;
 
   const getInitials = (name: string) => {
